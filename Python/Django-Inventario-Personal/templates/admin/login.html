@@ -1,0 +1,138 @@
+{% load staticfiles %}
+{% load template_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'admin/css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_home_page/assets/css/fontawesome-all.min.css' %}" />
+		<link rel="icon" href="#" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+          <!-- Navbar-->
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-light py-3">
+                <div class="container">
+                    <!-- Navbar Brand -->
+                    <a href="#" class="navbar-brand">
+                        <img src="#" alt="logo" width="150">
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+
+        <div class="container">
+            <div class="row py-5 mt-4 align-items-center">
+                <!-- For Demo Purpose -->
+                <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1569543678/form_d9sh6m.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
+                    <h1>Faça seu Login por aqui</h1>
+                    <p class="font-italic text-muted mb-0">Página de login Intranet.</p>
+                    <p class="font-italic text-muted">Feito Por <a href="https://bootstrapious.com" class="text-muted">
+                        <u>Oscar da Silva</u></a>
+                    </p>
+                </div>
+
+                <!-- Registeration Form -->
+                <div class="col-md-7 col-lg-6 ml-auto">
+                    <form  method="post" id="login-form">
+                      {% csrf_token %}
+                        <div class="row">
+
+                            {% if form.non_field_errors %}
+                                {% for error in form.non_field_errors %}                           
+                                    <script>
+                                            alert('{{ error }}')
+                                    </script>                          
+                                {% endfor %}
+                            {% endif %}
+
+                            <!-- User -->
+                            <div class="input-group col-lg-6 mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fa fa-user text-muted" id="user-icon"></i>                                     
+                                    </span>
+                                </div>
+                                {{ form.username.errors }}
+                                {{ form.username|class:"form-control bg-white border-left-0 border-md"}}
+                                
+                            </div>
+                            
+                            <!-- Password -->
+                            <div class="input-group col-lg-6 mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fa fa-lock text-muted" id="pass-icon"></i>
+                                    </span>
+                                </div>
+                                {{ form.password.errors }}
+                                {{ form.password|class:"form-control bg-white border-left-0 border-md"}}
+                                
+                            </div>
+
+                            
+
+                            <!-- Submit Button -->
+                            <div class="form-group col-lg-12 mx-auto mb-0">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+
+                            <!-- Divider Text -->
+                            <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                                <div class="border-bottom w-100 ml-5"></div>
+                            </div>
+
+
+                            <!-- Already Registered -->
+                            <div class="text-center w-100">
+                                <p class="text-muted font-weight-bold">
+                                  <a href="#" class="text-primary ml-2">
+                                    Centro Logístico Integrado FastCargo S/A
+                                  </a>
+                                </p>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+
+        document.getElementById("id_username").placeholder = "Usuário";
+        document.getElementById("id_password").placeholder = "Senha";
+        $(function () {
+            $('input, select').on('focus', function () {
+                $(this).parent().find('.input-group-text').css('border-color', '#80bdff');
+            });
+            $('input, select').on('blur', function () {
+                $(this).parent().find('.input-group-text').css('border-color', '#ced4da');
+            });
+        });
+
+       
+
+    </script>
+      <script src="{% static 'app_home_page/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'app_home_page/assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'app_home_page/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'app_home_page/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'app_home_page/assets/js/util.js' %}"></script>
+      
+  </body>
+</html>
+
+
+

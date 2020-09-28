@@ -1,0 +1,38 @@
+{% extends 'tables.html' %}
+{% load static %}
+
+
+{% block table-article %}
+<thead>
+
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Usuário</th>
+        <th>Tipo</th>
+        <th>Status</th>
+        <th>Modelo</th>
+        <th>Patrimônio</th>
+        <th>Anti-Vírus</th>
+	    <th>Locado</th>
+    </tr>
+
+</thead>
+
+<tbody>
+    {% for model in object_list %}
+        <tr>
+            <td>{{model.id}}</td>
+            <td>{{model.nome}}</td>
+            <td>{{model.usuario}}</td>
+            <td>{{model.tipo}}</td>
+            <td>{{model.status}}</td>
+            <td>{{model.modelo}}</td>
+            <td>{{model.patrimonio}}</td>
+            <td>{{model.antivirus}}</td>
+	        <td>{{model.locado}}</td>
+        </tr>
+    {% endfor %}
+
+</tbody>
+{% endblock %}

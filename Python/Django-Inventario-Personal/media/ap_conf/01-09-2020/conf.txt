@@ -1,0 +1,122 @@
+
+!
+version 12.4
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname AP-03-90
+!
+logging rate-limit console 9
+enable secret 5 $1$G0il$QUo3lwEtlGifCKwKyQEr5/
+!
+no aaa new-model
+!
+!
+dot11 syslog
+!
+dot11 ssid Coletores - OPR
+   vlan 90
+   authentication open 
+   guest-mode
+!
+!
+!
+username Cisco password 7 110A002918312C3D1D0A02013F123D0E1826171657
+!
+!
+bridge irb
+!
+!
+interface Dot11Radio0
+ no ip address
+ no ip route-cache
+ !
+ encryption vlan 90 key 1 size 40bit 7 26998F4DD653 transmit-key
+ encryption vlan 90 mode wep mandatory 
+ !
+ ssid Coletores - OPR
+ !
+ channel 2452
+ station-role root
+ bridge-group 1
+ bridge-group 1 subscriber-loop-control
+ bridge-group 1 block-unknown-source
+ no bridge-group 1 source-learning
+ no bridge-group 1 unicast-flooding
+ bridge-group 1 spanning-disabled
+!
+interface Dot11Radio0.90
+ encapsulation dot1Q 90
+ no ip route-cache
+ bridge-group 90
+ bridge-group 90 subscriber-loop-control
+ bridge-group 90 block-unknown-source
+ no bridge-group 90 source-learning
+ no bridge-group 90 unicast-flooding
+ bridge-group 90 spanning-disabled
+!
+interface Dot11Radio1
+ no ip address
+ no ip route-cache
+ shutdown
+ !
+ encryption vlan 90 key 1 size 40bit 7 C8B355647F29 transmit-key
+ encryption vlan 90 mode wep mandatory 
+ !
+ ssid Coletores - OPR
+ !
+ dfs band 3 block
+ channel dfs
+ station-role root
+ bridge-group 1
+ bridge-group 1 subscriber-loop-control
+ bridge-group 1 block-unknown-source
+ no bridge-group 1 source-learning
+ no bridge-group 1 unicast-flooding
+ bridge-group 1 spanning-disabled
+!
+interface Dot11Radio1.90
+ encapsulation dot1Q 90
+ no ip route-cache
+ bridge-group 90
+ bridge-group 90 subscriber-loop-control
+ bridge-group 90 block-unknown-source
+ no bridge-group 90 source-learning
+ no bridge-group 90 unicast-flooding
+ bridge-group 90 spanning-disabled
+!
+interface FastEthernet0
+ no ip address
+ no ip route-cache
+ duplex auto
+ speed auto
+ bridge-group 1
+ no bridge-group 1 source-learning
+ bridge-group 1 spanning-disabled
+!
+interface FastEthernet0.90
+ encapsulation dot1Q 90
+ no ip route-cache
+ bridge-group 90
+ no bridge-group 90 source-learning
+ bridge-group 90 spanning-disabled
+!
+interface BVI1
+ ip address 10.1.90.3 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.1.90.254
+ip http server
+no ip http secure-server
+ip http help-path http://www.cisco.com/warp/public/779/smbiz/prodconfig/help/eag
+bridge 1 route ip
+!
+!
+!
+line con 0
+line vty 0 4
+ login local
+!
+end
