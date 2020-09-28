@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						<h4 class="page-title">Declarações</h4>
+						<ul class="breadcrumbs">
+							<li class="nav-home">
+								<a href="#">
+									<i class="flaticon-home"></i>
+								</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+							<li class="nav-item">
+								<a href="#">Tables</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+							<li class="nav-item">
+								<a href="#">Datatables</a>
+							</li>
+						</ul>
+					</div>
+					<div class="row">
+						
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="d-flex align-items-center">
+										<h4 class="card-title">Lista de ATI's</h4>
+										<div class="col-md-4">
+										<a class="form-control" href="{% url 'form' %}">
+										<button type="button" class="btn btn-primary btn-round ml-auto">
+											
+											<i  class="fa fa-plus"></i>
+											Add ATI
+										</button>
+										</a>
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+									<!-- Modal -->
+									
+									<div class="table-responsive">
+										<table id="add-row" class="display table table-striped table-hover" >
+											<thead>
+												<tr>
+													<th>ATI Nº</th>
+													<th>Conhecimento</th>
+													<th>Emissao Doc</th>
+													<th>Pais Origem</th>
+													<th >Representante</th>
+													
+												</tr>
+											</thead>
+											<tfoot>
+												<tr>
+													<th>ATI Nº</th>
+													<th>Conhecimento</th>
+													<th>Emissao Doc</th>
+													<th>Pais Origem</th>
+													<th>Representante</th>
+												</tr>
+											</tfoot>
+											<tbody>
+											{{formAnexo.management_form}}
+											  {% for photo in anexos %}
+												<tr>
+												  <td><a href="{{ photo.arquivo.url }}">{{ photo.arquivo.name }}</a></td>
+												  <td>Fodase</td>
+												</tr>
+											  {% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+</div>	
+		
+		
+{% endblock %}
+
+

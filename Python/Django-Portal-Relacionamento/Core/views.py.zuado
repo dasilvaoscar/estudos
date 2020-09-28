@@ -1,0 +1,80 @@
+from django.forms import formset_factory, modelformset_factory, inlineformset_factory
+from django.shortcuts import render
+from Cadastro.forms import ATIForm, StatusForm, MercForm, FormsetMerc
+from Cadastro.management.commands.scrapy import Command
+from Cadastro.models import ATI, CNT
+
+
+def index(request):
+    return render(request, 'index.html', {})
+
+
+def forms(request):
+
+    if request.method == 'POST' and 'add_object2' in request.POST:
+        objCE = request.POST.get('add_object2')
+
+
+        if objCE != '':
+            ce = request.POST['add_object2']
+            scrapy = Command.handle(ce)
+            ScrapyCapa = scrapy[0]
+            ScrapyMerc = scrapy[1]
+
+            form = ATIForm(prefix="ATIForm")
+            form.fields["BL"].initial = ScrapyCapa[0]
+            form.fields["CE"].initial = ce
+            form.fields["REPCNPJ"].initial = ScrapyCapa[1]
+            form.fields["REPREZAO"].initial = ScrapyCapa[2]
+
+            formStatus = StatusForm()
+            formStatus.fields["emissao"].initial = ScrapyCapa[3]
+            formStatus.fields["situacao"].initial = ScrapyCapa[4]
+            formStatus.fields["modalidade"].initial = ScrapyCapa[5]
+            formStatus.fields["pOrigem"].initial = ScrapyCapa[6]
+            formStatus.fields["psProcede"].initial = ScrapyCapa[7]
+            formStatus.fields["UFdestino"].initial = ScrapyCapa[8]
+
+            #initial = [ScrapyMerc]
+            formMerc = FormsetMerc(prefix="formMerc")
+            formMerc.fields
+
+            #print(initial)
+            #formMerc.extra += len(ScrapyMerc[0])
+            #formMerc.extra += len(initial)
+
+
+
+            return render(request, 'forms.html', {'form': form, 'formStatus': formStatus, 'formMerc': formMerc})
+
+
+
+    form = ATIForm(prefix="ATIForm")
+    formStatus = StatusForm()
+    #formMerc = modelformset_factory(CNT, MercForm, extra=1)
+    formMerc = FormsetMerc(prefix="formMerc")
+
+
+    return render(request, 'forms.html', {'form': form, 'formStatus': formStatus, 'formMerc': formMerc})
+
+
+"""{
+                      'CNT': ScrapyMerc[0][index],
+                      'cntISO': ScrapyMerc[1][index],
+                      'cntTipo': ScrapyMerc[2][index],
+                      'cntTara': ScrapyMerc[3][index],
+                      'cntPB': ScrapyMerc[4][index],
+                      'm3': ScrapyMerc[5][index],
+                      'codIMO:': ScrapyMerc[6][index],
+                      'clasIMO': ScrapyMerc[7][index]
+                      } for index, i in enumerate(ScrapyMerc[0])
+                ])"""
+
+"""initial += ('CNT', ScrapyMerc[0][index]),
+                    initial += ('cntISO', ScrapyMerc[1][index]),
+                    initial += ('cntTipo', ScrapyMerc[2][index]),
+                    initial += ('cntTara', ScrapyMerc[3][index]),
+                    initial += ('cntPB', ScrapyMerc[4][index]),
+                    initial += ('m3', ScrapyMerc[5][index]),
+                    initial += ('codIMO', ScrapyMerc[6][index]),
+                    initial += ('clasIMO', ScrapyMerc[7][index])"""

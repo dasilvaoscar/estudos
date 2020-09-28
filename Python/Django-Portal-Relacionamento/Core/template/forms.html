@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<script src="{% static 'assets/js/jquery-file-upload/jquery-3.1.1.min.js' %}"></script>
+	<script src="{% static 'assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+	<div class="page-inner">
+		<form enctype="multipart/form-data" name="itensForm" method="POST" action="">
+			{% csrf_token %}
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">Autorização de Transito de Importação</div>
+						</div>
+						<div class="card-body">
+							<div class="accordion accordion-secondary">
+								<div class="card">
+									<div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										<div class="span-icon">
+											<div class="flaticon-file"></div>
+										</div>
+										<div class="span-title">
+											Dados do Conhecimento
+										</div>
+										<div class="span-mode"></div>
+									</div>
+									<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+										<div class="card-action">
+											<div class="form-group form-floating-label">
+												<!--<input id="inputFloatingLabel" name="add_object3" type="text" class="form-control input-border-bottom" >-->
+												{{ form.CE.label }}
+												{{ form.CE }}
+												{{ form.BL.label }}
+												{{ form.BL }}
+												{{ form.REPREZAO.label }}
+												{{ form.REPREZAO }}
+												{{ form.REPCNPJ.label }}
+												{{ form.REPCNPJ }}
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header collapsed" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										<div class="span-icon">
+											<div class="flaticon-file-1"></div>
+										</div>
+										<div class="span-title">
+											Status do Conhecimento
+										</div>
+										<div class="span-mode"></div>
+									</div>
+									<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+										<div class="card-body form-inline">
+											<label for="id_FormConhec-EMISSAO" class="col col-form-label">{{ form.EMISSAO.label }}</label>
+											<div class="col-md-11 p-0">
+												{{ form.EMISSAO}}
+												<!--<input type="text" class="form-control input-full" id="id_FormConhec-EMISSAO" placeholder="Enter Input"></input>-->
+											</div>
+										</div>
+										<div class="card-body form-inline">
+											<label for="id_FormConhec-SITUACAO" class="col-md-1 col-form-label">{{ form.SITUACAO.label }}</label>
+											<div class="col-md-11 p-0">
+												{{ form.SITUACAO}}
+											</div>
+										</div>
+										<div class="card-body form-inline">
+											<label for="id_FormConhec-MODALIDADE" class="col-md-1 col-form-label">{{ form.MODALIDADE.label }}</label>
+											<div class="col-md-11 p-0">
+												{{ form.MODALIDADE}}
+											</div>
+										</div>
+										<div class="card-body form-inline">
+											<label for="id_FormConhec-pORIGEM" class="col-md-1 col-form-label">{{ form.pORIGEM.label }}</label>
+											<div class="col-md-11 p-0">
+												{{ form.pORIGEM}}
+											</div>
+										</div>
+										<div class="card-body form-inline">
+											<label for="id_FormConhec-psPROCEDE" class="col-md-1 col-form-label">{{ form.psPROCEDE.label }}</label>
+											<div class="col-md-11 p-0">
+												{{ form.psPROCEDE}}
+											</div>
+										</div>
+										<div class="card-body form-inline">
+											<label for="id_FormConhec-UFdestino" class="col-md-1 col-form-label">{{ form.UFdestino.label }}</label>
+											<div class="col-md-11 p-0">
+												{{ form.UFdestino}}
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header collapsed" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										<div class="span-icon">
+											<div class="flaticon-box-1"></div>
+										</div>
+										<div class="span-title">
+											Dados da Mercadoria
+										</div>
+										<div class="span-mode"></div>
+									</div>
+									<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+										<div class="card card-action">
+											{{ formMerc.management_form }}
+											{% for item in formMerc %}		
+											<table class="formset">
+												<thead>
+													<th>{{ item.CNT.label }}</th>
+													<th>{{ item.cntISO.label }}</th>
+													<th>{{ item.cntTipo.label }}</th>
+													<th>{{ item.cntTara.label }}</th>
+													<th>{{ item.cntPB.label }}</th>
+													<th>{{ item.m3.label }}</th>
+													<th>{{ item.codIMO.label }}</th>
+													<th>{{ item.clasIMO.label }}</th>
+													<th class="text-center">Action</th>
+												</thead>
+												<tbody>
+													<tr>
+														<td>{{ item.CNT }}</td>
+														<td>{{ item.cntISO }}</td>
+														<td>{{ item.cntTipo }}</td>
+														<td>{{ item.cntTara }}</td>
+														<td>{{ item.cntPB }}</td>
+														<td>{{ item.m3 }}</td>
+														<td>{{ item.codIMO }}</td>
+														<td>{{ item.clasIMO }}</td>
+														<td class="text-center">
+															<button type="button" class="btn btn-icon btn-round btn-success add-form-row">
+																<i class="fas fa-plus"></i>
+															</button>
+															<button type="button" class="btn btn-icon btn-round btn-danger remove-form-row">
+																<i class="fas fa-trash-alt"></i>
+															</button>
+														</td>
+														<td>{{ item.id }}</td>
+													</tr>
+												</tbody>
+											</table>
+											{% endfor %}			
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--<form name="modalForm" method="post" action="">
+							<button class="btn btn-success">Salvar</button>
+							<input class="btn btn-info" id ="btnEdit" type="button" onclick="spam()" value="Editar">
+							<button class="btn btn-danger">Cancelar</button>-->
+							<div class="card-action">
+								<div clas="form-control">
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+										Incluir CE
+									</button>
+									<button class="btn btn-success">Salvar</button>
+									<button class="btn btn-danger">Cancelar</button>
+								</div>
+								<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLongTitle">Inclusão Automatica</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<div class="form-group form-floating-label">
+													<div class="input-icon">
+														<input type="text" name="add_object2" class="form-control" placeholder="Search for...">
+														<span class="input-icon-addon">
+															<i class="fa fa-search"></i>
+														</span>
+													</div>
+												</div>
+												
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+												<button type="submit" class="btn btn-primary">Pesquisar</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Anexos do Processo</h4>
+								</div>
+								<div class="card-body">
+									<ul class="nav nav-pills nav-secondary" id="pills-tab" role="tablist">
+										<li class="nav-item">
+											<a class="nav-link active" id="pills-BL-tab" data-toggle="pill" href="#pills-BL" role="tab" aria-controls="pills-BL" aria-selected="true">Build of Landing (BL)</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" id="pills-CE-tab" data-toggle="pill" href="#pills-CE" role="tab" aria-controls="pills-CE" aria-selected="false">Conhecimento Embarque (CE)</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" id="pills-DT-tab" data-toggle="pill" href="#pills-DT" role="tab" aria-controls="pills-DT" aria-selected="false">Declaração de Transporte (DTC/DTA)</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Documento Comercial (Invoice)</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Anexos Complementares</a>
+										</li>
+									</ul>
+									<div class="tab-content mt-2 mb-3" id="pills-tabContent">
+										<div class="tab-pane fade show active" id="pills-BL" role="tabpanel" aria-labelledby="pills-BL-tab">
+											<div class="card-body">
+												{{ formAnexoBL}}
+												<h1 class="card-body">
+													<button d="salvarBL" class="btn btn-success">Enviar</button>
+												</h1>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="pills-CE" role="tabpanel" aria-labelledby="pills-CE-tab">
+											<div class="card-body">
+												{{ formAnexoCE}}
+												<h1 class="card-body">
+													<button id="salvarCE" class="btn btn-success">Enviar</button>
+												</h1>
+											</div>
+										</div>
+										<div class="tab-pane fade" id="pills-DT" role="tabpanel" aria-labelledby="pills-DT-tab">
+											<div class="card-body">
+												{{ formAnexoDT}}
+												<h1 class="card-body">
+													<button id="salvarCE" class="btn btn-success">Enviar</button>
+												</h1>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+{% endblock %}
+
+{% block jquery %}
+	<!--   Core JS Files   -->
+		<script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+		<script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
+		<!-- jQuery UI -->
+		<script src="{% static 'assets/js/plugin/datatables/datatables.min.js' %}"></script>
+		<script src="{% static 'assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js' %}"></script>
+		<!-- jQuery Scrollbar -->
+		<script src="{% static 'assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js' %}"></script>
+		<!-- Atlantis JS -->
+		<script src="{% static 'assets/js/atlantis.min.js' %}"></script>
+		<!-- Atlantis DEMO methods, don't include it in your project! -->
+		<script src="{% static 'assets/js/setting-demo2.js' %}"></script>
+		<script src="{% static 'assets/js/plugin/sweetalert/sweetalert.min.js' %}"></script>
+	
+	<script>
+		function updateElementIndex(el, prefix, ndx) {
+		   var id_regex = new RegExp('(' + prefix + '-\\d+)');
+		   var replacement = prefix + '-' + ndx;
+		   if ($(el).attr("for")) $(el).attr("for", $(el).attr("for").replace(id_regex, replacement));
+		   if (el.id) el.id = el.id.replace(id_regex, replacement);
+		   if (el.name) el.name = el.name.replace(id_regex, replacement);
+		}
+		function cloneMore(selector, prefix) {
+			var newElement = $(selector).clone(true);
+			var total = $('#id_' + prefix + '-TOTAL_FORMS').val();
+			newElement.find(':input:not([type=button]):not([type=submit]):not([type=reset])').each(function() {
+				var name = $(this).attr('name')
+				if(name) {
+					name = name.replace('-' + (total-1) + '-', '-' + total + '-');
+					var id = 'id_' + name;
+					$(this).attr({'name': name, 'id': id}).val('').removeAttr('checked');
+				}
+			});
+			newElement.find('label').each(function() {
+				var forValue = $(this).attr('for');
+				if (forValue) {
+				  forValue = forValue.replace('-' + (total-1) + '-', '-' + total + '-');
+				  $(this).attr({'for': forValue});
+				}
+			});
+			total++;
+			$('#id_' + prefix + '-TOTAL_FORMS').val(total);
+			$(selector).after(newElement);
+			
+			return false;
+		}
+		function deleteForm(prefix, btn) {
+			var total = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
+			if (total > 1){
+				var formset_id
+				formset_id = btn.closest('.formset').find("input[type='hidden']").attr('value');
+				btn.closest('.formset').remove()
+				if (formset_id > 0){
+					$.ajax({
+						url : "{% url 'delete' %}", // the endpoint
+						type : "POST", // http method
+						data : { cnt : formset_id }, // data sent with the delete request
+						beforeSend: function (xhr) {
+							xhr.setRequestHeader("X-CSRFToken", '{{ csrf_token }}');},
+						success : function(json) {
+							// hide the post
+							alert('deu boa')
+							// hide the post on success
+						  console.log("post deletion successful");
+						},
+					  });
+				}
+				
+				var forms = $('.formset');
+				$('#id_' + prefix + '-TOTAL_FORMS').val(forms.length);
+				for (var i=0, formCount=forms.length; i<formCount; i++) {
+					$(forms.get(i)).find(':input').each(function() {
+						updateElementIndex(this, prefix, i);
+					});
+				}
+			}
+			return false;
+		}
+		$(document).on('click', '.add-form-row', function(e){
+			e.preventDefault();
+			cloneMore('.formset:last', 'merda');
+			return false;
+		});
+		$(document).on('click', '.remove-form-row', function(e){
+			e.preventDefault();
+			deleteForm('merda', $(this));
+			return false;
+		});
+		
+		
+	</script>
+	<script>
+		$(document).ready(function(){
+
+			;$('#gallery').DataTable({
+			});
+		});
+	</script>
+	
+{% endblock %}
