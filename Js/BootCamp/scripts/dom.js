@@ -3,9 +3,7 @@ let input = document.querySelector(".container input");
 let button = document.querySelector(".container #button");
 let removeButton = document.querySelector(".container ul li .btn btn-primary");
 
-let todos = [
-    
-];
+let todos = JSON.parse(localStorage.getItem('list_todos')) || [];
 
 function renderList() {
 
@@ -38,11 +36,13 @@ function addList() {
     todos.push(textInput);
     input.value = '';
     renderList();
+    saveToCache()
 }
 
 function delList(ind){
     todos.splice(ind, 1);
     renderList();
+    saveToCache()
 }
 
 function git () {
@@ -62,6 +62,12 @@ function git () {
     git.setAttribute('class', 'fa fa-github');
     div.appendChild(linkElement);
 
+    renderList()
+
+}
+
+function saveToCache() {
+    localStorage.setItem('list_todos', JSON.stringify(todos))
 }
 
 git();
