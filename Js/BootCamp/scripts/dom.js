@@ -1,19 +1,6 @@
-let linkElement = document.createElement('a');
-linkElement.setAttribute('href', 'https://github.com/OscarSilvaOfficial');
-
-let textElement = document.createTextNode('Acessar meu GitHub');
-linkElement.appendChild(textElement);
-
-let container = document.querySelector('.container');
-let div = document.createElement("div")
-
-container.style.textAlign = 'center';
-container.appendChild(div)
-div.appendChild(linkElement)
-
-let listElement = document.querySelector(".container ul")
-let inputElement = document.querySelector(".container input")
-let buttonElement = document.querySelector(".container #button")
+let ul = document.querySelector(".container ul")
+let input = document.querySelector(".container input")
+let button = document.querySelector(".container #button")
 let removeButton = document.querySelector(".container ul li .btn btn-primary")
 
 let todos = [
@@ -22,26 +9,56 @@ let todos = [
 
 function renderList() {
 
-    listElement.innerHTML = ''
+    ul.innerHTML = ''
 
     for (todo of todos) {
         
-        let todoElement = document.createElement('li');
+        let li = document.createElement('li');
         let todoText = document.createTextNode(todo);
-        
-        todoElement.appendChild(todoText);
-        listElement.appendChild(todoElement);
+        let linkRemove = document.createElement('a');
+        let removeText = document.createTextNode('Remover');
+        let ind = todos.indexOf(todo);
+
+        li.appendChild(todoText);
+        li.setAttribute('class', 'list-group-item')
+        li.style.marginBottom = '.5em'
+        ul.appendChild(li);
+        linkRemove.setAttribute('href', '#');
+        linkRemove.setAttribute('onclick', 'delList(' + ind + ')');
+        linkRemove.appendChild(removeText);
+        linkRemove.style.marginLeft = '.5em';
+        li.appendChild(linkRemove);     
 
     }
 }
 
 function addList() {
-    let textInput = inputElement.value
+    let textInput = input.value
 
     todos.push(textInput);
-    inputElement.value = '';
-
+    input.value = '';
     renderList()
 }
 
-buttonElement.onclick = addList;
+function delList(ind){
+    todos.splice(ind, 1)
+    renderList()
+}
+
+function git () {
+
+    let linkElement = document.createElement('a');
+    let textElement = document.createTextNode('Acessar meu GitHub');
+    let container = document.querySelector('.container');
+    let div = document.createElement("div")
+
+    linkElement.setAttribute('href', 'https://github.com/OscarSilvaOfficial');
+    linkElement.appendChild(textElement);
+    container.style.textAlign = 'center';
+    container.appendChild(div)
+    div.appendChild(linkElement)
+
+}
+
+git()
+button.onclick = addList;
