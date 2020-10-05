@@ -1,8 +1,13 @@
-let ul = document.querySelector(".container ul");
+let ul = document.createElement("ul")
+let container = document.querySelector(".container");
 let input = document.querySelector(".container input");
 let button = document.querySelector(".container #button");
 let removeButton = document.querySelector(".container ul li .btn btn-primary");
+let h1 = document.createElement("h1")
 
+h1.innerHTML = '<kbd>Oscar-estudos<span style="color: #35ae35">~$</span></kbd> Aprendi em JS'
+container.insertBefore(ul, input)
+container.insertBefore(h1, ul)
 let todos = JSON.parse(localStorage.getItem('list_todos')) || [];
 
 function renderList() {
@@ -14,7 +19,7 @@ function renderList() {
         let li = document.createElement('li');
         let todoText = document.createTextNode(todo);
         let linkRemove = document.createElement('a');
-        let removeText = document.createTextNode('Remover');
+        let linkUpdate = document.createElement('a')
         let ind = todos.indexOf(todo);
 
         li.appendChild(todoText);
@@ -23,19 +28,37 @@ function renderList() {
         ul.appendChild(li);
         linkRemove.setAttribute('href', '#');
         linkRemove.setAttribute('onclick', 'delList(' + ind + ')');
-        linkRemove.appendChild(removeText);
+        linkRemove.setAttribute('class', 'fa fa-trash');
         linkRemove.style.marginLeft = '.5em';
-        li.appendChild(linkRemove);     
-
+        linkUpdate.setAttribute('href', '#');
+        linkUpdate.setAttribute('onclick', 'updateList(' + ind + ')');
+        linkUpdate.setAttribute('class', 'fa fa-edit');
+        linkUpdate.style.marginLeft = '.5em';
+        li.appendChild(linkRemove);    
+        li.appendChild(linkUpdate)
+        
     }
 }
 
 function addList() {
     let textInput = input.value;
 
-    todos.push(textInput);
-    input.value = '';
-    renderList();
+    if(textInput == ''){
+        alert('Não insira objetos nulos')
+    }
+    else{
+        todos.push(textInput);
+        input.value = '';
+        renderList();
+        saveToCache()
+        
+    }
+}
+
+function updateList(ind){
+    let resp = window.prompt("Deseja alterar? " + todos[ind])
+    todos[ind] = resp
+    renderList()
     saveToCache()
 }
 
