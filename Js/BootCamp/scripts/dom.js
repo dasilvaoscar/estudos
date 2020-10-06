@@ -24,18 +24,21 @@ function renderList() {
 
         li.appendChild(todoText);
         li.setAttribute('class', 'list-group-item');
-        li.style.marginBottom = '.5em';
+        li.appendChild(linkRemove);    
+        li.appendChild(linkUpdate);
+        
         ul.appendChild(li);
         linkRemove.setAttribute('href', '#');
         linkRemove.setAttribute('onclick', 'delList(' + ind + ')');
         linkRemove.setAttribute('class', 'fa fa-trash');
-        linkRemove.style.marginLeft = '.5em';
         linkUpdate.setAttribute('href', '#');
         linkUpdate.setAttribute('onclick', 'updateList(' + ind + ')');
         linkUpdate.setAttribute('class', 'fa fa-edit');
         linkUpdate.style.marginLeft = '.5em';
-        li.appendChild(linkRemove);    
-        li.appendChild(linkUpdate)
+        linkRemove.style.color = 'red';
+        linkRemove.style.marginLeft = '.5em';
+        li.style.marginBottom = '.5em';
+        
         
     }
 }
@@ -44,28 +47,28 @@ function addList() {
     let textInput = input.value;
 
     if(textInput == ''){
-        alert('Não insira objetos nulos')
+        alert('Não insira objetos nulos');
     }
     else{
         todos.push(textInput);
         input.value = '';
         renderList();
-        saveToCache()
+        saveToCache();
         
     }
 }
 
 function updateList(ind){
-    let resp = window.prompt("Deseja alterar? " + todos[ind])
-    todos[ind] = resp
-    renderList()
-    saveToCache()
+    let resp = window.prompt("Deseja alterar? " + todos[ind]);
+    todos[ind] = resp;
+    renderList();
+    saveToCache();
 }
 
 function delList(ind){
     todos.splice(ind, 1);
     renderList();
-    saveToCache()
+    saveToCache();
 }
 
 function git () {
@@ -73,7 +76,7 @@ function git () {
     let linkElement = document.createElement('a');
     let git = document.createElement('i');
     let container = document.querySelector('.container');
-    let div = document.createElement("div")
+    let div = document.createElement("div");
 
     linkElement.setAttribute('href', 'https://github.com/OscarSilvaOfficial');
     linkElement.appendChild(git);
@@ -85,12 +88,12 @@ function git () {
     git.setAttribute('class', 'fa fa-github');
     div.appendChild(linkElement);
 
-    renderList()
+    renderList();
 
 }
 
 function saveToCache() {
-    localStorage.setItem('list_todos', JSON.stringify(todos))
+    localStorage.setItem('list_todos', JSON.stringify(todos));
 }
 
 git();
