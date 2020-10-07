@@ -1,0 +1,29 @@
+form {
+    width: 100%;
+}
+
+h3 {
+    text-align: center;
+}
+
+.card {
+    margin-top: 1em;
+    width: 49%;
+    height: 10%;
+}
+
+.card .card-img-top {
+    width: 80%;
+    height: 30%;
+    margin-left: auto;
+    margin-top: 1em;
+    margin-right: auto;
+}
+
+#text-area {
+    height: 10rem !important;
+}
+
+#novotodo {
+    margin-top: .5em;
+}
