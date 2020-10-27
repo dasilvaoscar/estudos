@@ -1,5 +1,5 @@
-import {Cliente} from './Client.js'
-import {ContaCorrente} from './ContaCorrente.js'
+import {Cliente} from './modules/Client.js'
+import {ContaCorrente} from './modules/ContaCorrente.js'
 
 const cliente1 = new Cliente("Ricardo", "11122233309");
 const cliente2 = new Cliente('Oscar da Silva', "07267865941")
