@@ -2,16 +2,21 @@ export class Cliente{
     #nome;
     #cpf;
 
-    setNome(valor) {
-        if(!valor) return
+    constructor(nome, cpf){
+        this.nome = nome;
+        this.cpf = cpf;
+    };
 
-        this.nome = valor
-    }
+    setNome(valor) {
+        if(!valor) return;
+
+        this.nome = valor;
+    };
 
     setCpf(valor) {
-        if(!valor) return
+        if(!valor) return;
 
-        this.cpf = valor
-    }
+        this.cpf = valor;
+    };
 }
 
