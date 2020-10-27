@@ -7,12 +7,5 @@ const cliente2 = new Cliente('Oscar da Silva', "07267865941")
 const contaCorrenteRicardo = new ContaCorrente(1001, cliente1);
 const contaCorrenteOscar = new ContaCorrente(1002, cliente2)
 
-contaCorrenteRicardo.depositar(-100);
-contaCorrenteRicardo.depositar(100);
-contaCorrenteRicardo.depositar(100);
-contaCorrenteRicardo.sacar(50);
-
-contaCorrenteRicardo.transferir(100, contaCorrenteOscar);
-
-
-console.log(contaCorrenteOscar);
+contaCorrenteOscar.depositar(1000)
+contaCorrenteOscar.sacar(100)
