@@ -1,10 +1,8 @@
-export class Conta {
-    agencia;
-    saldo = 0;
-    cliente;
+export class Conta{
 
     constructor(agencia, cliente) {
         this.agencia = agencia;
+        this.saldo = 0
         this.cliente = cliente;
     };
 
@@ -16,11 +14,10 @@ export class Conta {
     };
 
     depositar(valor){
-        if(valor <= 0)
-        {
-            return;
-        } 
-        this.saldo += valor;           
+        if(valor <= 0) return;
+        this.saldo += valor;      
+        
+        console.log(`Depósito de R$ ${this.saldo} realizado`)
     };
 
     transferir(valor, conta) {
@@ -50,5 +47,6 @@ export class Conta {
     setCliente(valor){ 
         this.cliente = valor;
     };
+
 
 }
