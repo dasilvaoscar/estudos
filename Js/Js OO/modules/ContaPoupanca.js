@@ -1,5 +1,5 @@
-import {ContaCorrente} from './ContaCorrente'
+import {Conta} from './interfaces/ContaCorrente'
 
-export class ContaPoupanca extends ContaCorrente {
+export class ContaPoupanca extends Conta {
     
 }
