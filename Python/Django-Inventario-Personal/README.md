@@ -1,1 +1,0 @@
-# Projeto de um inventário
