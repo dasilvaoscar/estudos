@@ -1,0 +1,30 @@
+{
+  "name": "next-lp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
+    "@material-ui/core": "^5.0.0-alpha.16",
+    "@material-ui/icons": "^4.9.1",
+    "@zeit/next-css": "^1.0.1",
+    "next": "10.0.1",
+    "next-compose-plugins": "^2.2.1",
+    "next-fonts": "^1.5.1",
+    "next-images": "^1.6.2",
+    "react": "17.0.1",
+    "react-bootstrap-icons": "^1.1.0",
+    "react-dom": "17.0.1",
+    "react-sidebar-ui": "^1.2.1"
+  }
+}
