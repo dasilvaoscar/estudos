@@ -62,8 +62,10 @@ const app = new Vue({
             firstName: this.getFirstName(),
             lastName: this.getLastName(),
         }
-
-        this.$store.commit('setUsers', payload)
+        
+        for(let i = 1; i<=15; i++) {
+            this.$store.commit('setUsers', payload)
+        }
     },
 })
 
