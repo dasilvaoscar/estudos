@@ -38,13 +38,16 @@
       <table v-if="isAuthorized()" class="table table-striped table-inverse table-responsive">
         <thead class="thead-inverse">
           <tr>
+            <th>ID</th>
             <th>User Name</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Alterar</th>
           </tr>
           </thead>
           <tbody>
-            <tr v-for="user of getUsers()">
+            <tr v-for="(user, i) of getUsers()" :key="user.name+i">
+              <td>{{ i+1 }}</td>
               <td>{{ user.name }}</td>
               <td scope="row">{{ user.firstName }}</td>
               <td>{{user.lastName }}</td>
@@ -62,3 +65,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<style>
+  #app {
+    margin: auto;
+  }
+</style>
