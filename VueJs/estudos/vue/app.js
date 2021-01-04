@@ -1,5 +1,10 @@
 const app = new Vue({
-    store: store,
+    store: store, 
+
+    async created() {
+        this.$data.new = await axios.get('https://api.covid19api.com/') /* Dont Work */
+    }, 
+    
     methods: {
         /* Getters */
         getUsers: function() {
