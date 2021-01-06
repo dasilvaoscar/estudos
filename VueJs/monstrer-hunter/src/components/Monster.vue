@@ -1,6 +1,6 @@
 <template>
   <div class="life">
-    <h2>Fucking Nemesis</h2>
+    <h2>Nemesis</h2>
     <b-progress :value="getMonsterLife()" variant="danger" striped :animated="animate"></b-progress>
     <div class="nemesis">
       <img src="../assets/nemesis.png">

@@ -7,7 +7,7 @@
       </div>
       <div class="comment">
         <div class="mb-2" v-if="stage.damageOnPlayer != 0">
-          <b-avatar class="hit" variant="danger" :text="stage.damageOnPlayer.toString()"></b-avatar> 
+          <b-avatar class="hit" :variant="getColor(stage.healOnPlayer)" :text="stage.damageOnPlayer.toString()"></b-avatar> 
         </div>
       </div>
 
@@ -31,6 +31,12 @@ import { Component, Vue } from 'vue-property-decorator';
   methods: {
     getStages: function () {
       return this.$store.getters.stage
+    },
+
+    getColor: function (heal) {
+      const response = heal == 0 ? 'danger':'success'
+      console.log(response)
+      return response 
     }
   }
 })
