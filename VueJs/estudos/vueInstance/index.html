@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <title>Aprendendo | Vue</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="./vue/vuex/store.js" defer></script>
+    <script src="./vue/app.js" defer></script>
+  </head>
+  <body class="container">
+    <div id="app">
+      <comp></comp>
+
+      <h1 v-if="isLogged()">
+        Hellow, {{ getFullName() }}
+      </h1>
+
+      <h1 v-else-if="isAnonymous()">
+        Anonymous user is logged
+      </h1>
+
+      <button class="btn btn-primary" style="color: aliceblue; margin-right:1rem" role="button" 
+      v-show="!isAnonymous()" @click="changeLogged()">
+        <template v-if="!isLogged()">Change Logged State</template>
+        <template v-else>Logout</template>
+      </button>
+      <button style="color: white" class="btn btn-secondary" role="button"
+      v-show="!isLogged()" @click="changeAnonymous()">
+        <template v-if="!isAnonymous()">Login with Anonymous</template>
+        <template v-else>Logout</template>
+      </button>
+
+      <table v-if="isAuthorized()" class="table table-striped table-inverse">
+        <thead class="thead-inverse">
+          <tr>
+            <th>ID</th>
+            <th>User Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(user, i) of getUsers()" :key="user.name+i">
+              <td>{{ i+1 }}</td>
+              <td>{{ user.name }}</td>
+              <td scope="row">{{ user.firstName }}</td>
+              <td>{{user.lastName }}</td>
+            </tr>
+          </tbody>
+      </table>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script>
+    <script src="https://unpkg.com/vuex@3.6.0/dist/vuex.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<style>
+  #app {
+    text-align: center;
+  }
+
+  .table {
+    margin: 3% auto auto auto;
+  }
+</style>
