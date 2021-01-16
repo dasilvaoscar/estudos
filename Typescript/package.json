@@ -1,0 +1,27 @@
+{
+  "name": "Typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Oscar da Silva",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "DEBUG=* ts-node-dev src/index.ts"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "4.17.1",
+    "ts-node-dev": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/node": "14.0.13",
+    "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "@typescript-eslint/parser": "^4.12.0",
+    "babel": "^6.23.0",
+    "eslint": "^7.17.0",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
