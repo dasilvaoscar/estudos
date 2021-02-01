@@ -41,8 +41,7 @@ header {
   height: 81px;
   position: fixed;
   width: 100%;
-  opacity: 1;
-  background-color: whitesmoke;
+  background-color: #FFFFF;
   transition: top 0.1s;
 }
 

@@ -15,15 +15,8 @@ const headerUpDown = () => {
 const closeWarning = () => {
   document.getElementsByClassName('warning')[0].style.display = "none";
   document.getElementById("header").style.top = "0px";
-  localStorage.setItem('warning-closed', 'warning-closed')
+  localStorage.setItem('warning-closed')
 }
-
-(() => {
-  if (localStorage.getItem('warning-closed')) {
-    document.getElementsByClassName('warning')[0].style.display = "none";
-    document.getElementById("header").style.top = "0px";
-  }
-})()
 
 headerUpDown()
 

@@ -34,15 +34,13 @@ ul {
 /* New Style */
 
 header {
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 81px;
   position: fixed;
   width: 100%;
-  opacity: 1;
-  background-color: whitesmoke;
+  background-color: white;
   transition: top 0.1s;
 }
 

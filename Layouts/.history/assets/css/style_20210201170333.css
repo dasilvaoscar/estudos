@@ -34,15 +34,13 @@ ul {
 /* New Style */
 
 header {
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 81px;
   position: fixed;
   width: 100%;
-  opacity: 1;
-  background-color: whitesmoke;
+  background: white;
   transition: top 0.1s;
 }
 
@@ -112,7 +110,7 @@ header img {
 
 .btn-billet {
   width: 100%;
-  background-color: #A9E4EB;
+  background: #A9E4EB;
   border: none;
   font-size: 14px;
   font-weight: 800;
@@ -325,7 +323,7 @@ header img {
 
 .help {
   background-color: #CAFCE9;
-  height: 1173px;
+  height: 1361px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -409,7 +407,7 @@ header img {
   font-family: inherit;
 }
 .card-body p a{
-  font-weight: 100;
+  font-weight: bold;
 }
 
 .btn-need-help {
@@ -423,10 +421,7 @@ header img {
   border-radius: 10px;
 }
 
-.btn-need-help:hover {
-  background-color: #12C07D;
-  color: #000000;
-}
+.
 
 .circle-arrow-up .fa-arrow-up {
   color: #323232;

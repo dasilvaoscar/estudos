@@ -18,12 +18,7 @@ const closeWarning = () => {
   localStorage.setItem('warning-closed', 'warning-closed')
 }
 
-(() => {
-  if (localStorage.getItem('warning-closed')) {
-    document.getElementsByClassName('warning')[0].style.display = "none";
-    document.getElementById("header").style.top = "0px";
-  }
-})()
+if (localStorage.getItem('warning-closed'))
 
 headerUpDown()
 

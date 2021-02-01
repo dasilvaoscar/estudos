@@ -19,11 +19,11 @@ const closeWarning = () => {
 }
 
 (() => {
-  if (localStorage.getItem('warning-closed')) {
+  if (localStorage.getItem('warning-closed') {
     document.getElementsByClassName('warning')[0].style.display = "none";
     document.getElementById("header").style.top = "0px";
   }
-})()
+})
 
 headerUpDown()
 
