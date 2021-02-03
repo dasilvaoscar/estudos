@@ -44,6 +44,19 @@ ul {
   padding-inline-start: 0px;
 }
 
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0rem rgb(0 123 255 / 25%);
+}
+
 /* New Style */
 
 header {
@@ -52,7 +65,7 @@ header {
   align-items: center;
   justify-content: space-around;
   height: 81px;
-  position: fixed;
+  position: sticky;
   width: 100%;
   opacity: 1;
   background-color: white;
@@ -156,6 +169,82 @@ header img {
 .how-we-do-it-differently {
   background-color: #CAFCE9;
   height: 911px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.how-we-do-it-differently figure img {
+  border-radius: 25px;
+  width: 691px;
+  height: 690px;
+  margin-left: 50%;
+  position: relative;
+  bottom: 30px;
+}
+
+.cards {
+  flex-direction: column;
+  width: 35%;
+  position: relative;
+  right: 1.5%;
+  top: 3%;
+}
+
+.cards h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  width: 32%;
+}
+
+#img-special {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  right: 254px;
+  top: 85px;
+}
+
+#img-featured {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  right: 473px;
+  top: 137px;
+}
+
+#cards-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#cards-content div {
+  width: 270px;
+  margin: 2%;
+  height: 270px;
+  padding: 27px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+#cards-content div img {
+  margin-bottom: 10px;
+}
+
+#cards-content div h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 21px;
+}
+
+#cards-content div p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+#cards-content > div:nth-child(2n+1) {
+  margin-left: 0px;
 }
 
 .help-a-millions {
@@ -259,7 +348,6 @@ header img {
   margin-left: 15.5rem;
 }
 
-
 .our-clients {
   height: 441px;
   display: flex;
@@ -304,6 +392,8 @@ header img {
 
 .social-icons {
   letter-spacing: 4px;
+  position: relative;
+  left: 55px;
 }
 
 
@@ -330,12 +420,14 @@ header img {
   align-items: center;
   color: white;
   justify-content: center;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .img-text-quetinho {
   position: absolute;
-  right: 133px;
+  right: 155px;
   bottom: -130px;
 }
 
@@ -357,6 +449,8 @@ header img {
 }
 
 .footer-links-subtitle a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
   color: white;
   text-decoration: none;
   font-size: 12px;
@@ -369,7 +463,10 @@ header img {
 }
 
 .footer-links-subtitle h6 {
-  font-weight: 900;
+  line-height: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
 }
 
 .little-footer-content {
