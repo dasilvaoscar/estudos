@@ -19,8 +19,8 @@
 .rodapePrincipal-navMap-list {
   display: flex;
   flex-direction: column;
-  height: 250px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .conteudoPrincipal-cursos {
