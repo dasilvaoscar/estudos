@@ -1,4 +1,4 @@
-const headerUpDown = () => {
+function headerUpDown() {
   window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
     if (document.getElementsByClassName('warning')[0].style.display != 'none') {
@@ -12,7 +12,7 @@ const headerUpDown = () => {
   }
 }
 
-const closeWarning = () => {
+function closeWarning() {
   document.getElementsByClassName('warning')[0].style.display = "none";
   document.getElementById("header").style.top = "0px";
   localStorage.setItem('warning-closed', 'warning-closed')
@@ -24,6 +24,15 @@ const closeWarning = () => {
     document.getElementById("header").style.top = "0px";
   }
 })()
+
+// Votar nesse desgraça
+// const img = document.getElementsByClassName('img-text-quetinho')[0]
+
+// if ($(window).innerWidth() == 1750) {
+//   console.log($(window).innerWidth())
+//   img.style.right = ' px'.replace(' ', 300 - 33)
+// }
+  
 
 headerUpDown()
 

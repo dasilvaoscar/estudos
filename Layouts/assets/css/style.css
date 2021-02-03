@@ -1,4 +1,17 @@
 /* RESET BOOTSTRAP */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
 p {
   display: block;
   margin-block-start: 0em;
@@ -42,7 +55,7 @@ header {
   position: fixed;
   width: 100%;
   opacity: 1;
-  background-color: whitesmoke;
+  background-color: white;
   transition: top 0.1s;
 }
 
@@ -57,7 +70,7 @@ header img {
   align-items: center;
   background-color: #00E58D;
   width: 100%;
-  height: 40px;  
+  height: 40px;
 }
 
 .warning-text span {
@@ -147,24 +160,80 @@ header img {
 
 .help-a-millions {
   background-color: #DFB0FF;
-  height: 691px;
+  max-height: 691px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-.carousel-inner, 
+#help-a-millions-text {
+  flex-direction: column;
+  width: 24%;
+  margin-left: 8%;
+  display: flex;
+  justify-content: space-around;
+}
+#help-a-millions-text h1 {
+  color: white;
+}
+
+#help-a-millions-text p {
+  margin: 14px 0px 14px 0px;
+  display: flex;
+  line-height: 20px;
+  width: 68%;
+  justify-content: space-between;
+  font-family: inherit;
+}
+
+#help-a-millions-text p b {
+  white-space: nowrap;
+}
+
+#help-a-millions-text p img {
+  margin-right: 8%;
+  height: 69px;
+}
+
+#img-couple {
+  position: relative;
+  bottom: 196px;
+}
+
+#img-backgroup {
+  position: relative;
+  top: 119px;
+  mix-blend-mode: multiply;
+  opacity: 0.45;
+}
+
+#img-arrow-up {
+  position: relative;
+  bottom: 48rem;
+  right: -26rem;
+}
+#help-a-millions-text > p:nth-child(3) > img {
+  height: 36px !important;
+}
+
+#help-a-millions-text > p:nth-child(2) > img {
+  margin-right: 11%;
+}
+
+.couple {
+  width: 40%;
+  max-height: 691px;
+  position: relative;
+}
+
+.carousel-inner,
 .carousel-item-next,
 .carousel-item.active {
   display: flex;
 }
 
 .carousel-item-next::active p,
-.carousel-item-next p, 
-.carousel-item-left p,
-.carousel-item.active p,
-.carousel-item p,
-.carousel-item-next p {
+.carousel-item-prev::active p {
   width: 300px;
   position: relative;
   left: 8%;
@@ -175,11 +244,10 @@ header img {
   margin-left: 17%;
 }
 
-.seal{
-  vertical-align: middle;
-  border-style: none;
-  transform: translate(-50%, 255%);
-  margin: 0 auto;
+.seal {
+  position: relative;
+  left: -41.5rem;
+  bottom: -22rem;
 }
 
 .carousel-inner figure {
@@ -187,7 +255,7 @@ header img {
   margin-top: 1.1rem;
 }
 
-.carousel-inner figure > img:last-of-type {
+.carousel-inner figure>img:last-of-type {
   margin-left: 15.5rem;
 }
 
@@ -206,7 +274,7 @@ header img {
 
 .our-clients h1 {
   align-items: center;
-  width: 19rem;
+  width: 21rem;
   position: relative;
   left: 175px;
 }
@@ -219,7 +287,7 @@ header img {
 }
 
 .our-clients div div div p b {
-  line-height: 50px;  
+  line-height: 50px;
 }
 
 .social {
@@ -265,22 +333,10 @@ header img {
   font-size: 10px;
 }
 
-.img-circle {
-  position: absolute;
-  right: 290px;
-  bottom: -56px;
-}
-
-.img-long-arrow {
-  position: absolute;
-  right: 278px;
-  bottom: -102px;
-}
-
 .img-text-quetinho {
   position: absolute;
-  right: 171px;
-  bottom: -126px;
+  right: 133px;
+  bottom: -130px;
 }
 
 .logo-footer img {
@@ -342,10 +398,16 @@ header img {
   font-size: 14px;
 }
 
-.help h1, .our-clients h1 {
-  font-size: 41px;
+.help h1,
+.our-clients h1,
+#help-a-millions-text h1 {
+  font-size: 44px;
   margin-top: 0%;
   font-family: 'Fredoka One', cursive;
+}
+
+.help h1 {
+  letter-spacing: -3px;
 }
 
 .help h6 {
@@ -362,11 +424,11 @@ header img {
   height: 45px;
 }
 
-.heading:hover h2{
+.heading:hover h2 {
   margin-top: 1px;
 }
 
-.heading:hover h2 button{
+.heading:hover h2 button {
   color: #1bcc8b;
   margin-top: 5px;
 }
@@ -378,7 +440,7 @@ header img {
   margin-top: 5px;
 }
 
-.heading h2 .fa-plus{
+.heading h2 .fa-plus {
   color: #00E58D;
   margin-right: 4%;
   font-size: 75%;
@@ -395,7 +457,9 @@ header img {
   margin-left: 4%;
 }
 
-.heading h2 button:active, .btn-help:hover, .btn-help:active {
+.heading h2 button:active,
+.btn-help:hover,
+.btn-help:active {
   text-decoration: none;
 }
 
@@ -408,7 +472,8 @@ header img {
   width: 476px;
   font-family: inherit;
 }
-.card-body p a{
+
+.card-body p a {
   font-weight: 100;
 }
 
@@ -422,6 +487,8 @@ header img {
   width: 15%;
   border-radius: 10px;
 }
+
+
 
 .btn-need-help:hover {
   background-color: #12C07D;
@@ -452,15 +519,27 @@ header img {
   width: 50%;
 }
 
-#radius1, #radius2, #radius3, 
-#radius4,#radius5,#radius6, 
-#radius7, #radius8, #radius9 {
+#radius1,
+#radius2,
+#radius3,
+#radius4,
+#radius5,
+#radius6,
+#radius7,
+#radius8,
+#radius9 {
   border-radius: 10px;
 }
 
-#radius1:hover, #radius2:hover, #radius3:hover, 
-#radius4:hover, #radius5:hover,#radius6:hover,
-#radius7:hover,#radius8:hover, #radius9:hover {
+#radius1:hover,
+#radius2:hover,
+#radius3:hover,
+#radius4:hover,
+#radius5:hover,
+#radius6:hover,
+#radius7:hover,
+#radius8:hover,
+#radius9:hover {
   border-radius: 10px;
   border: 2px solid #59ecb6;
 }
