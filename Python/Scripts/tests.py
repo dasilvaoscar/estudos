@@ -1,4 +1,4 @@
-x = {"key1": "value1 from x", "key2": "value2 from x"}
-y = {"key2": "value2 from y", "key3": "value3 from y"}
+import requests
 
-print(x | y)
+r = requests.get('https://api.github.com/OscarSilvaOfficial', auth=('oscarkaka222@gmail.com', 'Kaka25780'))
+print(r)
