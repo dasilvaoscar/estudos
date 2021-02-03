@@ -25,7 +25,7 @@ function closeWarning() {
   }
 })()
 
-// Votar nesse desgraça
+// TODO Votar nesse desgraça
 // const img = document.getElementsByClassName('img-text-quetinho')[0]
 
 // if ($(window).innerWidth() == 1750) {
