@@ -1,0 +1,77 @@
+body {
+  font-family: Montserrat;
+  font-size: 16px;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+a {
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.493);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1rem 1rem;
+  font-weight: 700;
+}
+
+.menu-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.menu-list > li {
+  padding: 0 1rem;
+}
+
+.main-title,
+.grid-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.flex-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.flex-box > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 200px;
+          flex: 1 1 200px;
+  padding: 1rem;
+}
+
+.layout-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  margin: 1rem;
+  grid-gap: 10px;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,23 @@
+.main-title,
+.grid-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.flex-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-box > div {
+  flex: 1 1 200px;
+  padding: 1rem;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  margin: 1rem;
+  grid-gap: 10px;
+}
