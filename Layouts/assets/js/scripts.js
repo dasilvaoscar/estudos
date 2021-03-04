@@ -25,15 +25,6 @@ function closeWarning() {
   }
 })()
 
-// TODO Votar nesse desgraça
-// const img = document.getElementsByClassName('img-text-quetinho')[0]
-
-// if ($(window).innerWidth() == 1750) {
-//   console.log($(window).innerWidth())
-//   img.style.right = ' px'.replace(' ', 300 - 33)
-// }
-  
-
 headerUpDown()
 
 document.getElementsByClassName("close-link")[0].addEventListener("click", closeWarning);

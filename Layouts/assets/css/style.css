@@ -70,6 +70,7 @@ header {
   opacity: 1;
   background-color: white;
   transition: top 0.1s;
+  z-index: 1;
 }
 
 header img {
@@ -137,14 +138,15 @@ header img {
 
 
 .btn-billet {
-  width: 100%;
   background-color: #A9E4EB;
   border: none;
   font-size: 14px;
   font-weight: 800;
   padding: 13px;
   border-radius: 10px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 2px rgb(0 0 0 / 25%);
+  position: relative;
+  left: 5%;
 }
 
 .btn-billet:hover {
@@ -179,8 +181,6 @@ header img {
   width: 100%;
   height: 690px;
   margin-left: 50%;
-  position: relative;
-  bottom: 30px;
 }
 
 .cards {
@@ -201,7 +201,7 @@ header img {
   font-family: 'Montserrat', sans-serif;
   position: absolute;
   right: 254px;
-  top: 85px;
+  top: 80px;
 }
 
 #img-featured {
@@ -257,7 +257,7 @@ header img {
 
 #help-a-millions-text {
   flex-direction: column;
-  width: 24%;
+  width: 23%;
   margin-left: 8%;
   display: flex;
   justify-content: space-around;
@@ -302,7 +302,7 @@ header img {
 }
 
 #help-a-millions-text > p:nth-child(3) > img {
-  height: 36px !important;
+  height: 36px;
 }
 
 #help-a-millions-text > p:nth-child(2) > img {
@@ -313,11 +313,6 @@ header img {
   max-width: 40%;
   max-height: 691px;
   position: relative;
-}
-
-.carousel-item {
-  position: relative;
-  left: 16%;
 }
 
 .carousel-inner,
@@ -334,10 +329,14 @@ header img {
   top: 10%;
 }
 
-#carouselExampleControls {
+#carouselClients {
   width: 50%;
   position: relative;
   left: -8%;
+}
+
+#carouselWeDo {
+  display: none;
 }
 
 .seal {
