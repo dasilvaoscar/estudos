@@ -1,0 +1,35 @@
+body {
+  margin: 1rem;
+}
+
+.box {
+  background-color: red;
+  height: 300px;
+  width: 300px;
+  -webkit-transition-property: background-color, border-radius;
+  transition-property: background-color, border-radius;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+
+.box:hover {
+  -webkit-animation: toEnd 1s;
+          animation: toEnd 1s;
+  border-radius: 50%;
+  background-color: blue;
+}
+
+@-webkit-keyframes toEnd {
+  to {
+    -webkit-transform: translateX(calc(100vw - 300px));
+            transform: translateX(calc(100vw - 300px));
+  }
+}
+
+@keyframes toEnd {
+  to {
+    -webkit-transform: translateX(calc(100vw - 300px));
+            transform: translateX(calc(100vw - 300px));
+  }
+}
+/*# sourceMappingURL=main.css.map */

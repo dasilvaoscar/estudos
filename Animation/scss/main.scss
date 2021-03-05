@@ -1,0 +1,23 @@
+body {
+  margin: 1rem;
+}
+
+.box {
+ background-color:  red;
+ height: 300px;
+ width: 300px;
+ transition-property: background-color, border-radius;
+ transition-duration: .5s;
+}
+
+.box:hover {
+  animation: toEnd 1s; 
+  border-radius: 50%;
+  background-color: blue;
+}
+
+@keyframes toEnd {
+  to{
+    transform: translateX(calc(100vw - 300px));
+  }
+}
