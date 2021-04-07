@@ -1,6 +1,6 @@
 import { createConnection } from "typeorm";
 import { User } from './models/User';
-import { env } from '../../../env'
+import { env } from '../env'
 
 
 export class Connection {
@@ -18,9 +18,9 @@ export class Connection {
       ],
       synchronize: true,
       logging: false
-    }).then(connection => {
-      console.log(`DB Is connect: ${connection.isConnected}`)
-    }).catch(error => console.log(error));
+    })
+    .then(connection => { console.log(`DB Is connect: ${connection.isConnected}`)})
+    .catch(error => console.log(error));
   }
 
 }

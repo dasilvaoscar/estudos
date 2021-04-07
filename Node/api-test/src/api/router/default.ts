@@ -1,6 +1,8 @@
 import { Router } from 'express'
-import { home } from '../controller/index'
+import { UserController } from '../controller/index'
 
 export const router = Router()
 
-router.use('/', home)
+router.get('/', UserController.selectUser)
+router.post('/', UserController.createUser)
+router.delete('/:user_id', UserController.deleteUser)

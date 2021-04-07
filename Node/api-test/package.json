@@ -19,7 +19,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev --respawn --transpile-only main.ts"
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "ts-node-dev --respawn --transpile-only src/api/main.ts"
   },
   "author": "OscarSilva",
   "license": "ISC"
