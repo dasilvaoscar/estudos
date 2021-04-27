@@ -1,0 +1,15 @@
+{
+  "name": "alura",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "OscarSilvaOfficial",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/main"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  }
+}
