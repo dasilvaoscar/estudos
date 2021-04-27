@@ -1,24 +1,14 @@
-import NegociacaoInterface from '../interfaces/NegoficacaoInterface'
+import NegoficacaoView from '../views/NegoficacaoView'
 
-class Negociacao {
-
-  constructor(private _data: Date, private _quantidade: number, private _valor: number) {}
-
-  get data(): Date {
-    return this._data;
-  }
-
-  get quantidade(): number {
-    return this._quantidade;
-  }
-
-  get valor(): number {
-    return this._valor;
-  }
+class Negociacao extends NegoficacaoView {
 
   get volume(): number {
+    if(!this._quantidade || !this._valor) {
+      throw("Construtor não definido")
+    }
     return this._quantidade * this._valor;
   }
+
 }
 
 export default Negociacao
