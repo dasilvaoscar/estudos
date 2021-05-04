@@ -1,12 +1,4 @@
-interface Pessoa {
-  nome?: string,
-  idade?: number,
-  readonly cpf?: number;
-}
-
-interface RecebeStringERetornaString {
-  (fname: string, lname: string): string
-}
+import { Pessoa, RecebeStringERetornaString, RelogioInterface } from './interfaces'
 
 function criarPessoa(pessoa: Pessoa): Pessoa {
   return pessoa
@@ -24,3 +16,11 @@ const myFuncTest: RecebeStringERetornaString = (fname, lname) => {
 
 console.log(oscar.nome = 'da Silva')
 console.log(myFuncTest("Teste", "da Silva"))
+
+class Relogio implements RelogioInterface {
+  hora: Date = new Date();
+}
+
+const hora = new Relogio()
+
+console.log(hora.hora)
