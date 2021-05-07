@@ -4,8 +4,8 @@ from builder.mongo_builder import MongoBuilder
 
 class Mongo(MongoBuilder):
 
-  def connect(self):
-    return self._conn
+  def connect(self, db):
+    return self._conn[db]
 
   def db_names(self):
     return self._conn.list_database_names()
