@@ -1,4 +1,4 @@
-# Aplicação do design pattern abstract aactory
+# Aplicação do design pattern abstract factory
 
 from abstract_factory.abstract_mongo_factory import Mongo
 
