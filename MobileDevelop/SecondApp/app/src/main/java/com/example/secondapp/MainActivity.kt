@@ -49,8 +49,8 @@ class MainActivity : AppCompatActivity() {
     * Levando dados para outra activity
     * */
     private fun nextActivity(ActivityClass: AppCompatActivity) {
-        val nextActivity = Intent(this, ActivityClass::class.java)
-        startActivity(nextActivity)
+        val nextActivity = Intent(this, ActivityClass::class.java) // TODO
+        startActivity(nextActivity) // TODO
     }
 
     fun onClickAqui(view: View) {
