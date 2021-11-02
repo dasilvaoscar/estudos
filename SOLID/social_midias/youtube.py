@@ -1,4 +1,4 @@
-from modules.social_midias.abstract_midia import AbstractMidia
+from social_midias.abstract_midia import AbstractMidia
 
 class Youtube(AbstractMidia):
 
