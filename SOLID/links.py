@@ -1,10 +1,12 @@
 from social_midias.midia_types import SocialMidiaTypes
 from social_midias.youtube import Youtube
+from social_midias.twitter import Twitter
 
 def get_link(params, midia: SocialMidiaTypes):
     
     midias = {
-        SocialMidiaTypes.YOUTUBE: Youtube
+        SocialMidiaTypes.YOUTUBE: Youtube,
+        SocialMidiaTypes.TWITTER: Twitter
     }
 
     midia = midias[midia](params)
