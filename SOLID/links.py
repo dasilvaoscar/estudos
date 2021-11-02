@@ -1,4 +1,4 @@
-from social_midias.midia_types import SocialMidiaTypes
+from social_midias.base.midia_types import SocialMidiaTypes
 from social_midias.youtube import Youtube
 from social_midias.twitter import Twitter
 
