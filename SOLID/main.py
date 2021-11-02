@@ -11,4 +11,4 @@ twitter_link = get_link(
   midia=SocialMidiaTypes.TWITTER
 )
 
-print(twitter_link)
+for link in [youtube_link, twitter_link]: print(link)
