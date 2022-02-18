@@ -2,8 +2,6 @@ package main
 
 import "fmt"
 
-// import "fmt"
-
 func main() {
 	msg := func() string {
 		return "Hello World " + returnStringName("Oscar")
