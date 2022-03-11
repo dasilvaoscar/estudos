@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: meu-app
+  labels:
+    app: meu-app
+
+spec:
+  containers:
+    - name: meu-app-pod
+      image: nginx
+      ports:
+        - containerPort: 80
