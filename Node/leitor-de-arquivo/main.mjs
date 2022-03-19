@@ -3,9 +3,19 @@ import { promisify } from 'util';
 
 const fileReader = promisify(readFile);
 
-const run = async () => {
-  const file = await fileReader('./package.json', 'utf-8');
-  console.log(file);
-};
+class ReadFileError extends Error {
+  constructor(message="Couldn't read file") {
+    super(message);
+    this.name = 'ReadFileError';
+  }
+}
 
-run();
+const getFile = async () => {
+  try {
+    return await fileReader('./package.json', 'utf-8');
+  } catch (e) {
+    throw new ReadFileError();
+  }
+}
+
+getFile().then(console.log).catch(console.log);
