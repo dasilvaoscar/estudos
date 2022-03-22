@@ -4,7 +4,7 @@ export class KafkaSingleton {
   private static instance: Kafka;
 
   private constructor() {
-    const kafka = new Kafka({
+    KafkaSingleton.instance = new Kafka({
       clientId: 'my-app',
       brokers: ['localhost:9092'],
       retry: {
@@ -12,15 +12,10 @@ export class KafkaSingleton {
         retries: 10,
       },
     });
-
-    KafkaSingleton.instance = kafka;
   }
 
   public static getInstance(): Kafka {
-    if (!KafkaSingleton.instance) {
-      new KafkaSingleton();
-    }
-
+    if (!KafkaSingleton.instance) new KafkaSingleton();
     return KafkaSingleton.instance;
   }
 }

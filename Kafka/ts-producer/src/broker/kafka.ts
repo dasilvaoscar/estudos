@@ -1,9 +1,9 @@
 import { randomUUID } from 'crypto';
-import { ITopicConfig } from 'kafkajs';
+import { ITopicConfig, Kafka } from 'kafkajs';
 import { KafkaSingleton } from '../singleton/kafka';
 
 export class KafkaBroker {
-  kafkaInstance: any;
+  kafkaInstance: Kafka;
 
   constructor() {
     this.kafkaInstance = KafkaSingleton.getInstance();
@@ -36,10 +36,7 @@ export class KafkaBroker {
   }
 
   async consumer(topic: string, group: string): Promise<any> {
-    const consumer = this.kafkaInstance.consumer({
-      groupId: group,
-      fromBeginning: true,
-    });
+    const consumer = this.kafkaInstance.consumer({ groupId: group });
     await consumer.connect();
     await consumer.subscribe({ topic: topic });
     await consumer.run({
