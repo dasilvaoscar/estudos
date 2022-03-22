@@ -2,7 +2,7 @@ import { randomUUID } from 'crypto';
 import { ITopicConfig, Kafka } from 'kafkajs';
 import { KafkaSingleton } from './singleton/kafka';
 
-export class KafkaBroker {
+export class KafkaExecuter {
   kafkaInstance: Kafka;
 
   constructor() {

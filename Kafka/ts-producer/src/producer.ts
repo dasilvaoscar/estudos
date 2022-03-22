@@ -1,9 +1,9 @@
-import { KafkaBroker } from './kafka';
+import { KafkaExecuter } from './kafka';
 
-const kafkaBroker = new KafkaBroker();
+const kafkaExecuter = new KafkaExecuter();
 
 setInterval(() => {
-  kafkaBroker
+  kafkaExecuter
     .sendMessage('test', { name: 'Oscar' })
     .then(console.log)
     .catch(console.log);

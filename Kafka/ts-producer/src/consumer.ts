@@ -1,8 +1,8 @@
-import { KafkaBroker } from './kafka';
+import { KafkaExecuter } from './kafka';
 
-const kafkaBroker = new KafkaBroker();
+const kafkaExecuter = new KafkaExecuter();
 
-kafkaBroker
+kafkaExecuter
   .consumer('test', 'primeiro-grupo')
   .then(console.log)
   .catch(console.log);

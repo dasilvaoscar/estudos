@@ -1,6 +1,6 @@
-import { KafkaBroker } from '../kafka';
+import { KafkaExecuter } from '../kafka';
 
-const kafkaBroker = new KafkaBroker();
+const kafkaBroker = new KafkaExecuter();
 
 export const CreateListTopics = async () => {
   const topics = [{ topic: 'test' }];
