@@ -1,4 +1,4 @@
-import { KafkaBroker } from '../broker/kafka';
+import { KafkaBroker } from '../kafka';
 
 const kafkaBroker = new KafkaBroker();
 
