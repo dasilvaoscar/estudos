@@ -1,8 +1,10 @@
+import { randomUUID } from 'crypto';
 import { ITopicConfig } from 'kafkajs';
 import { KafkaSingleton } from '../singleton/kafka';
 
 export class KafkaBroker {
   kafkaInstance: any;
+
   constructor() {
     this.kafkaInstance = KafkaSingleton.getInstance();
   }
@@ -18,8 +20,8 @@ export class KafkaBroker {
     await admin.connect();
     await admin.createTopics({
       validateOnly: false,
-      waitForLeaders: true,
-      timeout: 1000000,
+      waitForLeaders: false,
+      timeout: 1000,
       topics: topics,
     });
   }
@@ -29,7 +31,24 @@ export class KafkaBroker {
     await producer.connect();
     return await producer.send({
       topic: topic,
-      messages: [{ value: JSON.stringify(message) }],
+      messages: [{ value: JSON.stringify(message), key: randomUUID() }],
+    });
+  }
+
+  async consumer(topic: string, group: string): Promise<any> {
+    const consumer = this.kafkaInstance.consumer({
+      groupId: group,
+      fromBeginning: true,
+    });
+    await consumer.connect();
+    await consumer.subscribe({ topic: topic });
+    await consumer.run({
+      eachMessage: async ({ topic, partition, message }) => {
+        const prefix = `${topic}[${partition} | ${message.offset}] / ${message.timestamp}`;
+        const messageDesc = `Key: ${message.key} | Value: ${message.value}`;
+        console.log(`------------------------------------`);
+        console.log(`- Prefix: ${prefix} | ${messageDesc}`);
+      },
     });
   }
 }

@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx ts-node-dev src/main.ts"
+    "producer": "npx ts-node-dev src/producer.ts",
+    "consumer": "npx ts-node-dev src/consumer.ts"
   },
   "author": "OscarSilvaOfficial",
   "license": "ISC",
