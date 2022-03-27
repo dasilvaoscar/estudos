@@ -12,10 +12,9 @@ export class Session implements ISession {
   private __usersUUID: string[];
   private __messages: Message[];
 
-  constructor(data: { id: string; usersUUID: string[]; messages: Message[] }) {
+  constructor(data: { id: string; usersUUID: string[] }) {
     this.__id = data.id;
     this.__usersUUID = data.usersUUID;
-    this.__messages = data.messages;
   }
 
   get id(): string {

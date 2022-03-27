@@ -14,6 +14,6 @@ const message: IMessage = {
   message: 'Hello',
 };
 
-client.emit(types.EVENT, message);
+client.emit(types.CHAT, message);
 
-client.on(types.EVENT, eventListener);
+client.on(types.CHAT, eventListener);

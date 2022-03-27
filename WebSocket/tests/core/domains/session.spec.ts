@@ -9,15 +9,9 @@ test('Create session', () => {
 
   const users = [firstUserUUID, secondUserUUID];
 
-  const messages = [
-    new Message({ userUUID: firstUserUUID, message: 'Oi' }),
-    new Message({ userUUID: secondUserUUID, message: 'Oila kkkk' }),
-  ];
-
   const sessionInfo = {
     id: UUID,
     usersUUID: users,
-    messages: messages,
   };
 
   const session = new Session(sessionInfo);
@@ -27,7 +21,4 @@ test('Create session', () => {
 
   expect(session.usersUUID).toEqual(users);
   console.log(`Users: ${JSON.stringify(session.usersUUID)}`);
-
-  expect(session.messages).toEqual(messages);
-  console.log(`Messages: ${JSON.stringify(session.messages)}`);
 });
