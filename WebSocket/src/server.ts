@@ -1,7 +1,7 @@
 import { Server } from 'socket.io';
 import { Session } from './core/domains/session';
-import { randomUUID } from 'crypto';
 import { Message } from './core/domains/message';
+import { SessionUseCase } from './core/useCases/session.useCase';
 import * as types from './utils/types';
 
 const configs = {
@@ -19,36 +19,21 @@ export interface Client {
 
 const server = new Server(3000, configs);
 
-const createSession = (fromUserUUID: string, toUserUUID: string): Session => {
-  console.log('Criando nova sessão');
-  return new Session({
-    id: randomUUID(),
-    usersUUID: [fromUserUUID, toUserUUID],
-  });
-};
-
-const getSession = (sessionId: string): Session => {
-  console.log('Buscando sessão');
-  return new Session({
-    id: sessionId,
-    usersUUID: [],
-  });
-};
-
-const createMessage = (message: string, userUUID: string) => {
-  return new Message({
-    message: message,
-    userUUID: userUUID,
-  });
-};
+const sessionUseCase = new SessionUseCase();
 
 const sessionController = (data: Client, socket: any) => {
   const session: Session =
     data.sessionId === undefined
-      ? createSession(data.fromUserUUID, data.toUserUUID)
-      : getSession(data.sessionId);
+      ? sessionUseCase.createSession({
+          fromUserUUID: data.fromUserUUID,
+          toUserUUID: data.toUserUUID,
+        })
+      : sessionUseCase.getSession(data.sessionId);
 
-  const message = createMessage(data.message, data.fromUserUUID);
+  const message = new Message({
+    message: data.message,
+    userUUID: data.fromUserUUID,
+  });
 
   socket.emit(types.CHAT, {
     sessionId: session.id,

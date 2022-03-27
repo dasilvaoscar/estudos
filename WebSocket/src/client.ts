@@ -6,13 +6,14 @@ const SOCKET_SERVER_URL = 'http://localhost:3000';
 const client = io(SOCKET_SERVER_URL);
 
 const message = {
+  sessionId: undefined,
   fromUserUUID: randomUUID(),
   toUserUUID: randomUUID(),
   message: 'Hello',
 };
 
 const eventListener = (data: any) => {
-  message['sessionId'] = data.sessionId;
+  message.sessionId = data.sessionId;
   console.log(data);
 };
 
