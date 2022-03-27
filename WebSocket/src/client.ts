@@ -5,11 +5,6 @@ import * as types from './utils/types';
 const SOCKET_SERVER_URL = 'http://localhost:3000';
 const client = io(SOCKET_SERVER_URL);
 
-const generateMessage = () => {
-  const messages = ['message1', 'message2', 'message3', 'message4'];
-  return Math.round(Math.random() * messages.length);
-}
-
 const message = {
   fromUserUUID: randomUUID(),
   toUserUUID: randomUUID(),
