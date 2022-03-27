@@ -10,7 +10,7 @@ export interface ISession {
 export class Session implements ISession {
   private __id: string;
   private __usersUUID: string[];
-  private __messages: Message[];
+  private __messages: Message[] = [];
 
   constructor(data: { id: string; usersUUID: string[] }) {
     this.__id = data.id;

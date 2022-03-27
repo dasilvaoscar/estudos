@@ -1,19 +1,28 @@
+import { randomUUID } from 'crypto';
 import { io } from 'socket.io-client';
-import { IMessage } from './core/domains/message';
 import * as types from './utils/types';
 
 const SOCKET_SERVER_URL = 'http://localhost:3000';
 const client = io(SOCKET_SERVER_URL);
 
-const eventListener = (data: any) => {
-  console.log(data);
-};
+const generateMessage = () => {
+  const messages = ['message1', 'message2', 'message3', 'message4'];
+  return Math.round(Math.random() * messages.length);
+}
 
-const message: IMessage = {
-  userUUID: '12334',
+const message = {
+  fromUserUUID: randomUUID(),
+  toUserUUID: randomUUID(),
   message: 'Hello',
 };
 
-client.emit(types.CHAT, message);
+const eventListener = (data: any) => {
+  message['sessionId'] = data.sessionId;
+  console.log(data);
+};
+
+setInterval(() => {
+  client.emit(types.CHAT, message);
+}, 2000);
 
 client.on(types.CHAT, eventListener);
