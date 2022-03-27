@@ -1,18 +1,18 @@
-import { IMessage } from './message';
+import { Message } from './message';
 
 export interface ISession {
-  id?: string;
+  id: string;
   usersUUID: string[];
-  messages: IMessage[];
-  addMessage(message: IMessage): void;
+  messages: Message[];
+  addMessage: (message: Message) => void;
 }
 
 export class Session implements ISession {
   private __id: string;
   private __usersUUID: string[];
-  private __messages: IMessage[];
+  private __messages: Message[];
 
-  constructor(data: ISession) {
+  constructor(data: { id: string; usersUUID: string[]; messages: Message[] }) {
     this.__id = data.id;
     this.__usersUUID = data.usersUUID;
     this.__messages = data.messages;
@@ -26,11 +26,11 @@ export class Session implements ISession {
     return this.__usersUUID;
   }
 
-  get messages(): IMessage[] {
+  get messages(): Message[] {
     return this.__messages;
   }
 
-  addMessage(message: IMessage): void {
+  addMessage(message: Message): void {
     this.__messages.push(message);
   }
 }

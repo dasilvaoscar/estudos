@@ -15,7 +15,8 @@
     "express": "^4.17.3",
     "socket.io": "^4.4.1",
     "socket.io-client": "^4.4.1",
-    "ts-node": "^10.7.0"
+    "ts-node": "^10.7.0",
+    "winston": "^3.6.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
@@ -44,7 +45,7 @@
       "json",
       "ts"
     ],
-    "rootDir": "tests",
+    "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
@@ -53,6 +54,9 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
   }
 }
