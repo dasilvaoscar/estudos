@@ -11,7 +11,7 @@ class EmailSender():
   
   def __init__(self):
     self.__sender_address = 'oscarkaka222@gmail.com'
-    self.__sender_pass = 'senha_de_app'
+    self.__sender_pass = 'dyqwducdroumngxo'
     self.__receiver_address = 'oscarkaka222@gmail.com'
     
   def __load_email_content(self):
