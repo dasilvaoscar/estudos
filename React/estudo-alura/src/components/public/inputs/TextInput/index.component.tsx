@@ -1,4 +1,4 @@
-import { IChangeEvent } from '../../interfaces/event';
+import { IChangeEvent } from '../../interfaces/events/change';
 import { useState } from 'react';
 import styles from './styles.module.scss';
 import { IStyleProps } from '../../interfaces/styles/styles.props';

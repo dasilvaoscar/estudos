@@ -1,14 +1,10 @@
-import { MainBtn } from './components/public/buttons/MainBtn/index.component'
-import { TextInput } from './components/public/inputs/TextInput/index.component';
+import { TestForm } from './components/public/forms/TestForm';
 
 function App() {
   return (
-    <div>
-      <MainBtn>
-          Título
-      </MainBtn>
-      <TextInput />
-    </div>
+    <>
+      <TestForm />
+    </>
   )
 }
 
