@@ -1,25 +1,25 @@
-import { useState } from "react"
-import { IFormEvent } from "../../interfaces/events/form"
+import { useState } from 'react';
+import { IChangeEvent } from '@/components/public/interfaces/events/change';
+import { IFormEvent } from '@/components/public/interfaces/events/form';
+import { frozen } from '../../../../helpers/functions';
 
 export const TestForm = () => {
-  const [name, setName] = useState<string>()
+  const [name, setName] = useState<string>();
+
+  function changeNameState(event: IChangeEvent) {
+    setName(event.target.value);
+  }
 
   function submit(event: IFormEvent) {
-    event.preventDefault()
-    alert("name: " + name)
+    frozen(event);
+    alert(`Hello ${name}`);
   }
 
   return (
     <form onSubmit={submit}>
-      <label>
-        Name:
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
+      <p>Name: {name}</p>
+      <input type="text" onChange={changeNameState} />
       <button>Submit</button>
     </form>
-  )
-}
+  );
+};
