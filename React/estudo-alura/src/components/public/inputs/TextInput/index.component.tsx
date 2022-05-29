@@ -1,7 +1,7 @@
-import { IChangeEvent } from '../../interfaces/events/change';
+import { IChangeEvent } from '@/helpers/interfaces/events/index';
+import { IStyleProps } from '@/helpers/interfaces/styles/styles.props';
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import { IStyleProps } from '../../interfaces/styles/styles.props';
 
 interface TextInputProps extends IStyleProps {
   value?: string;

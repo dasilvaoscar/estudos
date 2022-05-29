@@ -1,4 +1,4 @@
-import { IStyleProps } from "../../interfaces/styles/styles.props";
+import { IStyleProps } from "../../../../helpers/interfaces/styles/styles.props";
 import defaultStyles from './styles.module.scss'
 
 interface MainBtnProps extends IStyleProps {

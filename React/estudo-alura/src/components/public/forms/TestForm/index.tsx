@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { IChangeEvent } from '@/components/public/interfaces/events/change';
-import { IFormEvent } from '@/components/public/interfaces/events/form';
+import { IChangeEvent, IFormEvent } from '@/helpers/interfaces/events/index';
 import { frozen } from '../../../../helpers/functions';
 
 export const TestForm = () => {
