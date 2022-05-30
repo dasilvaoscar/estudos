@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Card } from './components/Cards/index.component'
 import * as storage from './helpers/storage/posts'
-import './styles.css'
+import * as generators from './helpers/generators/id'
 
 const getAllPosts = () => {
   const defaultPostsList = [
@@ -36,7 +36,7 @@ export const App = () => {
   }
 
   function renderPost(post) {
-    return <Card id={ Math.random() } text={post} />
+    return <Card id={ generators.generateID() } text={ post } />
   }
 
   function renderAllPosts() {
@@ -45,8 +45,8 @@ export const App = () => {
 
   return (
     <> 
-      <input type="text" onChange={changeCurrentPost} />
-      <button onClick={addPostOnList}>Change Posts</button>
+      <input type="text" onChange={ changeCurrentPost } />
+      <button onClick={ addPostOnList }>Change Posts</button>
       <ul class="tilesWrap">
         { renderAllPosts() }
       </ul>
