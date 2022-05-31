@@ -1,6 +1,6 @@
 import './styles.css'
 
-export function Card({ title, body, image }) {
+export function DefaultCard({ title, body, image }) {
   return (
     <div className="post">
       <img src={ image } alt="" />
