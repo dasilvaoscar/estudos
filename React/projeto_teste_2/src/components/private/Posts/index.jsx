@@ -18,11 +18,11 @@ export function Posts() {
   };
 
   const mountAllPosts = useCallback(async () => {
-    const [ photos, allPosts ] = await Promise.all([fetchPhotos(), fetchPosts()]);
+    const [ allPhotos, allPosts ] = await Promise.all([fetchPhotos(), fetchPosts()]);
 
     const postWithPhotos = allPosts.map(post => ({
       ...post,
-      image: photos.find(photo => photo.id === post.id).url,
+      image: allPhotos.find(photo => photo.id === post.id).url,
     }));
 
     [setPosts, setAllPosts].map(setter => setter(postWithPhotos));
