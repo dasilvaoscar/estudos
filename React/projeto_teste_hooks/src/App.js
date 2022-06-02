@@ -1,20 +1,22 @@
 import * as React from 'react';
 
+let message;
+
 function App() {
   const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
-    const message = 'Sempre executa quando o componente é atualizado';
+    message = 'Sempre executa quando o componente é atualizado';
     console.log(message)
   });
 
   React.useEffect(() => {
-    const message = 'Sempre que o componente for montado, o useEffect será executado';
+    message = 'Sempre que o componente for montado, o useEffect será executado';
     console.log(message)
   }, []);
 
   React.useEffect(() => {
-    const message = 'Sempre que a variável count for alterada, o useEffect será executado novamente';
+    message = 'Sempre que a variável count for alterada, o useEffect será executado novamente';
     console.log(message + ' ' + count);
   }, [count]);
 
