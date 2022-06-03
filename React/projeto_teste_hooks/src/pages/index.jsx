@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlobalContext } from '../context/index'
-import { Counter } from './counter/Counter'
+import { CounterDisplay } from './counter/Counter'
 import { CounterIncrement } from './counter/CounterIncrement';
 
 let message;
@@ -25,7 +25,7 @@ export const Home = () => {
 
   return (
     <div className="App" style={{ textAlign: 'center' }}>
-      <Counter />
+      <CounterDisplay />
       <CounterIncrement />
     </div>
   );
