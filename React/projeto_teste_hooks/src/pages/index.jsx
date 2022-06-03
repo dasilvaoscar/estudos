@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlobalContext } from '../context/index'
-import { CounterDisplay } from './counter/Counter'
+import { CounterDisplay } from './counter/CounterDisplay'
 import { CounterIncrement } from './counter/CounterIncrement';
 
 let message;
