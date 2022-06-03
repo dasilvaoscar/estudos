@@ -1,12 +1,12 @@
 import React from 'react';
-import { Context } from '../context/index'
-import { Counter } from '../components/Counter'
-import { CounterIncrement } from '../components/CounterIncrement';
+import { GlobalContext } from '../context/index'
+import { Counter } from './counter/Counter'
+import { CounterIncrement } from './counter/CounterIncrement';
 
 let message;
 
 export const Home = () => {
-  const { counterState: { counter } } = React.useContext(Context)
+  const { counterState: { counter } } = React.useContext(GlobalContext)
 
   React.useEffect(() => {
     message = 'Sempre executa quando o componente é atualizado';
