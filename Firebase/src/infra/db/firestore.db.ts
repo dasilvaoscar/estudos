@@ -9,7 +9,7 @@ export const getFirebaseCollection = async (collectionName: string) => {
   const docs = [];
   const firebaseCollection = collection(db, collectionName);
   const query = await getDocs(firebaseCollection);
-  query.forEach((doc) => docs.push(doc));
+  query.forEach((doc) => docs.push(doc.data()));
   return docs;
 };
 
@@ -19,5 +19,5 @@ export const addDocumentOnCollection = async (
 ) => {
   const firebaseCollection = collection(db, collectionName);
   const query = await addDoc(firebaseCollection, doc);
-  return query.id;
+  return { id: query.id };
 };
