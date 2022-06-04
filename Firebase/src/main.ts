@@ -1,4 +1,5 @@
-import { initializeApp, applicationDefault, cert } from 'firebase-admin/app';
-import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/firestore';
+import { getFirebaseCollection } from './infra/db/firestore.db';
 
-const fireBaseConfig = {};
+const collection = 'colecao_teste';
+
+getFirebaseCollection(collection).then(console.log)

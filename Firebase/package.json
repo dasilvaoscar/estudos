@@ -6,15 +6,16 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register src/main/index.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register src/main.ts",
     "build": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "test": "jest"
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "dotenv": "^16.0.1",
     "express": "4",
     "express-decorators": "^1.2.1",
-    "firebase": "8.10.1",
+    "firebase": "^9.8.2",
     "firebase-admin": "^10.2.0"
   },
   "devDependencies": {
