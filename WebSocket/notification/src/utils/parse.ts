@@ -1,4 +1,3 @@
-import { IMessageEvent } from "websocket";
 import { RawData } from "ws";
 
 export const parseMessage = (message: RawData | Buffer | string): object =>
