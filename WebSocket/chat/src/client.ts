@@ -12,7 +12,7 @@ const message = {
   message: 'Hello',
 };
 
-const eventListener = (data: any) => {
+const eventListener = (data: { sessionId: string }) => {
   message.sessionId = data.sessionId;
   console.log(data);
 };

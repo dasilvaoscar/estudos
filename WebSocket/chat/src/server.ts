@@ -1,4 +1,4 @@
-import { Server } from 'socket.io';
+import { Server, Socket } from 'socket.io';
 import { Session } from './core/domains/session';
 import { Message } from './core/domains/message';
 import { SessionUseCase } from './core/useCases/session.useCase';
@@ -21,7 +21,7 @@ const server = new Server(3000, configs);
 
 const sessionUseCase = new SessionUseCase();
 
-const sessionController = (data: Client, socket: any) => {
+const sessionController = (data: Client, socket: Socket) => {
   const session: Session =
     data.sessionId === undefined
       ? sessionUseCase.createSession({
@@ -44,7 +44,7 @@ const sessionController = (data: Client, socket: any) => {
   session.addMessage(message);
 };
 
-const eventListener = (socket) => {
+const eventListener = (socket: Socket) => {
   socket.on(types.CHAT, (data: Client) => {
     sessionController(data, socket);
   });
