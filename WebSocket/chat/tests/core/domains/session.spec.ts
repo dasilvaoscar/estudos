@@ -1,5 +1,4 @@
 import { Session } from '@/core/domains/session';
-import { Message } from '@/core/domains/message';
 import { randomUUID } from 'crypto';
 
 test('Create session', () => {
