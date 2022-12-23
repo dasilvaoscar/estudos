@@ -3,11 +3,10 @@ import { WebServer } from '../../../contracts/WebServer'
 import { Route } from "./types/Route";
 
 export class ExpressServer implements WebServer {
-  constructor(private readonly routes: Route[], private readonly server: Express) {
-    this.createRoutes();
-  }
-
+  constructor(private readonly routes: Route[], private readonly server: Express) {}
+  
   run(): void {
+    this.createRoutes();
     this.server.listen(8000, () => console.log("Server running"));
   }
 
@@ -22,3 +21,4 @@ export class ExpressServer implements WebServer {
     return new ExpressServer(routes, express());
   }
 }
+
