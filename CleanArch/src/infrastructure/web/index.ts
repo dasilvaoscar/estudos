@@ -14,7 +14,6 @@ export const routes: Route[] = [
     method: HttpMethods.POST,
     path: "/",
     callback: (req: Request, res: Response) => {
-      console.log(req.body)
       res.json(req.body);
     },
   },
