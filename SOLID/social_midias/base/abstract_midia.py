@@ -3,5 +3,5 @@ from abc import abstractmethod, ABC
 class AbstractMidia(ABC):
 
     @abstractmethod
-    def get_url(self):
+    def profile_info(self):
         pass
