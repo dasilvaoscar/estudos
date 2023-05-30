@@ -10,10 +10,7 @@ const terminal = createInterface({
   output: process.stdout,
 });
 
-client.onopen = OpenConnection;
 client.onmessage = ReceiveMessage;
-
-function OpenConnection() {}
 
 function ReceiveMessage(event: IMessageEvent) {
   const message = parseMessage(event.data);
