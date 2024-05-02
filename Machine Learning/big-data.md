@@ -3,7 +3,7 @@
 ### Definição
 É a possibilidade de armazenamento e análise de um volume massivo de dados
 
-### O que são os 4 V´s
+### O que são os 5 V´s
 - Volume
     - Crescimento de dados de forma exponencial
 - Velocidade
@@ -12,6 +12,8 @@
     - Tipos de informações com diferentes formatos.
 - Veracidade
     - A validade da informação
+- Valor
+    - No que esses dados agregam de valor para o seu contexto
 
 ## Data Warehouse
 Agrupamento de dados pré processados de uma base. Uma espécie de consolidação de informações. 
