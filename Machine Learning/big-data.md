@@ -16,7 +16,7 @@
     - No que esses dados agregam de valor para o seu contexto
 
 ## Data Warehouse
-Agrupamento de dados pré processados de uma base. Uma espécie de consolidação de informações. 
+Agrupamento de dados pré processados de uma base. Uma espécie de consolidação de informações, usado normalmente em métricas para análises
 
 ## Data Lake
 Dados brutos, e não estruturados
