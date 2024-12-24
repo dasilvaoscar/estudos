@@ -38,7 +38,7 @@ export async function createItem(tableName: string, item: object) {
 async function execute() {
   await createTable()
 
-  await createItem('TestTable', { id: 'test-1', name: 'Oscar da Silva', a: 2 })
+  await createItem('TestTable', { id: 'test-1', a: 2 })
   const item = await getItem('TestTable', { id: 'test' })
 
   console.log('ITEM', item)
