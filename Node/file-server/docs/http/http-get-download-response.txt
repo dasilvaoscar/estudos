@@ -1,0 +1,16 @@
+// NORMAL
+
+HTTP/1.1 200 OK
+content-type: text/plain; charset=utf-8
+content-length: 2
+Date: Wed, 25 Dec 2024 21:48:00 GMT
+Connection: keep-alive
+Keep-Alive: timeout=72
+
+// DOWNLOAD
+
+HTTP/1.1 200 OK
+Date: Wed, 25 Dec 2024 21:50:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=72
+Transfer-Encoding: chunked
