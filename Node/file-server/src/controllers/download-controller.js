@@ -1,6 +1,6 @@
 import { createReadStream } from 'fs';
 
-export async function DownloadController(request, reply) {
+export async function DownloadController(request) {
   const fileName = 'test.zip'
 
   try {
@@ -8,6 +8,8 @@ export async function DownloadController(request, reply) {
     return fileStream
   } catch (error) {
     fastify.log.error(error);
-    reply.status(500).send('Internal Server Error');
+    return {
+      status: 500
+    }
   }
 }

@@ -5,3 +5,7 @@ export function havyOperation() {
     }, 5000)
   })
 }
+
+console.log('1')
+console.log('2')
+console.log('3')

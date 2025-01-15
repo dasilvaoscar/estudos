@@ -1,0 +1,17 @@
+service: my-serverless-app
+provider:
+  name: aws
+  runtime: nodejs22.x
+functions:
+  hello:
+    handler: src.app.handler
+    events:
+      - http:
+          path: /
+          method: get
+package:
+  exclude:
+    - node_modules/**  # Exclui todo o diretório node_modules
+    - .env             # Exclui o arquivo .env
+    - logs/**          # Exclui arquivos de logs
+    - test.zip

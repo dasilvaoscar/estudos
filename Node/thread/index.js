@@ -26,10 +26,8 @@ async function testWithThreads(numberOfExecutions=100) {
   if (isMainThread) {
     const executions = Array.from({ length: numberOfExecutions })
     const workers = executions.map(() => new Worker('./index.js'))
-
-    workers.forEach(
-      (worker, index) => worker.on('message', (result) => console.log(`${index + 1} Thread`, result))
-    )
+    const messageListener = (worker, index) => worker.on('message', (result) => console.log(`${index + 1} Thread`, result))
+    workers.forEach(messageListener)
   } else {
     const result = await havyOperation()
     parentPort.postMessage(result);
