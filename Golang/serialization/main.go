@@ -7,7 +7,7 @@ import (
 
 type User struct {
 	Name  string `json:"test1"`
-	Email string `json:test2`
+	Email string `json:"test2"`
 }
 
 func main() {
