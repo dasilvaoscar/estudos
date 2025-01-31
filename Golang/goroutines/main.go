@@ -10,25 +10,23 @@ import (
 	"github.com/google/uuid"
 )
 
-const GO_ROUTINE_IMAGE_FOLDER = "tests-goroutine"
+const CONCURRENT_IMAGE_FOLDER = "tests-concurrent"
 const SEQUENTIAL_IMAGE_FOLDER = "tests-sequential"
 
 func saveImageRoutine(url string, wg *sync.WaitGroup, fileChan chan string) {
 	defer wg.Done()
 
 	img := utils.GetDecodedJPEG(url)
-	fileName := GO_ROUTINE_IMAGE_FOLDER + "/imagem_baixada" + uuid.NewString() + ".jpg"
+	fileName := CONCURRENT_IMAGE_FOLDER + "/imagem_baixada" + uuid.NewString() + ".jpg"
 	utils.SaveJPEGFile(fileName, img)
 
 	fileChan <- fileName
 }
 
 func saveImageConcurrent(urls []string) {
-	dirName := "tests-goroutine"
-
-	if err := os.Mkdir(dirName, 0755); err != nil {
-		os.RemoveAll(dirName)
-		os.Mkdir(dirName, 0755)
+	if err := os.Mkdir(CONCURRENT_IMAGE_FOLDER, 0755); err != nil {
+		os.RemoveAll(CONCURRENT_IMAGE_FOLDER)
+		os.Mkdir(CONCURRENT_IMAGE_FOLDER, 0755)
 	}
 
 	var wg sync.WaitGroup
@@ -49,18 +47,16 @@ func saveImageConcurrent(urls []string) {
 }
 
 func saveImageSequential(urls []string) {
-	dirName := "tests-default"
-
-	if err := os.Mkdir(dirName, 0755); err != nil {
-		os.RemoveAll(dirName)
-		os.Mkdir(dirName, 0755)
+	if err := os.Mkdir(SEQUENTIAL_IMAGE_FOLDER, 0755); err != nil {
+		os.RemoveAll(SEQUENTIAL_IMAGE_FOLDER)
+		os.Mkdir(SEQUENTIAL_IMAGE_FOLDER, 0755)
 	}
 
 	start := time.Now()
 
 	for _, url := range urls {
 		img := utils.GetDecodedJPEG(url)
-		fileName := dirName + "/imagem_baixada" + uuid.NewString() + ".jpg"
+		fileName := SEQUENTIAL_IMAGE_FOLDER + "/imagem_baixada" + uuid.NewString() + ".jpg"
 		utils.SaveJPEGFile(fileName, img)
 	}
 
