@@ -17,7 +17,7 @@ func saveImageRoutine(url string, wg *sync.WaitGroup, fileChan chan string) {
 	defer wg.Done()
 
 	img := utils.GetDecodedJPEG(url)
-	fileName := CONCURRENT_IMAGE_FOLDER + "/imagem_baixada" + uuid.NewString() + ".jpg"
+	fileName := CONCURRENT_IMAGE_FOLDER + "/imagem_baixada--" + uuid.NewString() + ".jpg"
 	utils.SaveJPEGFile(fileName, img)
 
 	fileChan <- fileName
@@ -38,7 +38,7 @@ func saveImageConcurrent(urls []string) {
 		wg.Add(1)
 		go saveImageRoutine(url, &wg, fileChan)
 	}
-
+	
 	wg.Wait()
 	close(fileChan)
 
@@ -56,7 +56,7 @@ func saveImageSequential(urls []string) {
 
 	for _, url := range urls {
 		img := utils.GetDecodedJPEG(url)
-		fileName := SEQUENTIAL_IMAGE_FOLDER + "/imagem_baixada" + uuid.NewString() + ".jpg"
+		fileName := SEQUENTIAL_IMAGE_FOLDER + "/imagem_baixada--" + uuid.NewString() + ".jpg"
 		utils.SaveJPEGFile(fileName, img)
 	}
 
