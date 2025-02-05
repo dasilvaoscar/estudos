@@ -12,6 +12,9 @@ func main() {
 	fmt.Println("Slice cap", cap(slice_1))
 
 	slice_1 = make([]int8, 1023)
-	slice_1 = append(slice_1, 1) // cap = 1536 | len + 25% 
+	slice_1 = append(slice_1, 100) // cap = 1536 | len + 25% 
 	fmt.Println("Slice cap", cap(slice_1))
+
+
+	fmt.Println("Acesso a indice não existente", slice_1[1000:1026])
 }
