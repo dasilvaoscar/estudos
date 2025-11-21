@@ -1,5 +1,0 @@
-venv*
-member-backend/media/members_profile*
-__pycache__/
-.vscode/
-members-front/
