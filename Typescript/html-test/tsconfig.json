@@ -1,9 +1,0 @@
-{
-  "include": ["ts/**/*"],
-  "compilerOptions": {
-    "noImplicitAny": true,
-    "target": "es5",
-    "noEmitOnError": true,
-    "outDir": "./js"
-  }
-}
