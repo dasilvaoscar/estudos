@@ -1,0 +1,4 @@
+**/node_modules
+**/*.pb.go
+.git
+tasks
